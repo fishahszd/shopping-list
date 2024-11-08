@@ -1,0 +1,12 @@
+<h2>Login</h2>
+<app-error-messages></app-error-messages>
+
+<div class="container">
+    <form [formGroup]="loginForm" (submit)="onLogin()">
+        <div class="form-group">
+            <input type="text" class="form-control mb-3 mt-3" name="userName" placeholder="Username" formControlName="userName">
+            <input type="password" class="form-control mb-3" name="password" placeholder="Password" formControlName="password">
+            <button class="btn btn-primary float-end">Login</button>
+        </div>
+    </form>
+</div>

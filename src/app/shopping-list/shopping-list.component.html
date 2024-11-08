@@ -1,0 +1,39 @@
+    <h2>{{this.list?.name}}</h2>
+    <app-error-messages></app-error-messages>
+    
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="list-group">
+                    <li *ngFor="let item of this.items | sortByField: 'done'" class="list-group-item" [ngClass]="{done: item.done == 1}" (click)="onItemClicked(item)" style="cursor: pointer;">
+                        <div style="display: flex; flex-wrap: nowrap;">
+                            <div style="flex-grow: 1;">
+                                {{item.name}}
+                            </div>
+                            <div>
+                                <img src="assets/delete.svg" style="max-width: 1.5em;" (click)="onDelete($event, item)">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3" >
+        <form [formGroup]="addItemForm" (submit)="addItem()">
+            <div class="row">
+                    <div class="col-sm-11">
+                        <input class="form-control" type="text" formControlName="itemName" placeHolder="Add new item">
+                    </div>
+                    <div class="col-sm-1 text-end p-2 p-sm-0">
+                        <button class="btn btn-primary" [disabled]="addItemForm.invalid">Add</button>
+                    </div>
+            </div>
+        </form>
+    </div>
+
+    
+
+
+

@@ -1,0 +1,35 @@
+
+    <h2>Shopping Lists</h2>
+    
+    <app-error-messages></app-error-messages>
+
+    <div class="container mt-3">
+        <div class="col-sm-12">
+            <ul class="list-group">
+                <li *ngFor="let shoppingList of this.shoppingLists" class="list-group-item" (click)="onItemClicked(shoppingList.id)" style="cursor: pointer;">
+                    <div style="display: flex; flex-wrap: nowrap;">
+                        <div style="flex-grow: 1;">
+                            {{shoppingList.name}}
+                        </div>
+                        <div>
+                            <img src="assets/delete.svg" style="max-width: 1.5em;" (click)="onDelete($event, shoppingList.id)">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <form [formGroup]="addListForm" (submit)="addList()">
+            <div class="row">
+                <div class="col-sm-11">
+                    <input class="form-control" type="text" formControlName="listName" placeholder="Add shopping list">
+                </div>
+                <div class="col-sm-1 text-end p-sm-0 p-2">
+                    <button class="btn btn-primary" [disabled]="addListForm.invalid">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
+

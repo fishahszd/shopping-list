@@ -1,0 +1,17 @@
+<div class="error-messages" *ngIf="this.errorMessages.size > 0">
+    <div *ngFor="let message of this.errorMessages | keyvalue" role="alert" class="alert alert-danger" >
+        {{message.value}}
+    </div>    
+</div>
+
+<div class="success-messages" *ngIf="this.errorMessages.size == 0 && this.successMessages.size > 0">
+    <div *ngFor="let message of this.successMessages | keyvalue" role="alert" class="alert alert-success" >
+        {{message.value}}
+    </div>    
+</div>
+
+<div class="info-messages" *ngIf="this.errorMessages.size == 0 && this.infoMessages.size > 0">
+    <div *ngFor="let message of this.infoMessages | keyvalue" role="alert" class="alert alert-primary" >
+        {{message.value}}
+    </div>    
+</div>
