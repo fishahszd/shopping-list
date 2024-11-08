@@ -1,0 +1,7 @@
+{
+    "/rest": {
+      "target": "https://localhost/shopping-list",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
